@@ -14,9 +14,8 @@
 */
 void test_validate_my_username()
 {
-    /**
-     * TODO: Replace the line below with your code here as described above to verify your /conf/username.txt 
-     * config file and my_username() functions are setup properly
-     */
-    TEST_ASSERT_TRUE_MESSAGE(false,"AESD students, please fix me!");
+    const char *my_username_from_autotest = my_username();
+    const char *my_username_from_conf_file = malloc_username_from_conf_file();
+    TEST_ASSERT_EQUAL_STRING_MESSAGE(my_username_from_autotest, my_username_from_conf_file, "The username from autotest-validate.c and username-from-conf-file.h do not match.");
+    free((void *)my_username_from_conf_file);
 }
